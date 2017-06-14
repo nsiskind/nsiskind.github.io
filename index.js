@@ -32,12 +32,12 @@ document.onclick = function(e) {
 
   // Sending a receiving data in JSON format using GET method
 var xhr = new XMLHttpRequest();
-var url = "https://wm5zlp74ll.execute-api.us-east-1.amazonaws.com/plsWork/helloworlddemo";
+var url = "https://wm5zlp74ll.execute-api.us-east-1.amazonaws.com/plsWork/helloworlddemo?element=element";
 //+ encodeURIComponent(
-var jsonSend =  {
- "element" : "{element}",
- "x_in_ele": "{x_in_ele}",
- "y_in_ele": "{y_in_ele}"};
+// var jsonSend =  {
+//  "element" : "{element}",
+//  "x_in_ele": "{x_in_ele}",
+//  "y_in_ele": "{y_in_ele}"};
 
 xhr.open("GET", url, true);
 
@@ -47,6 +47,6 @@ xhr.onreadystatechange = function () {
         console.log(json);//+ "\n" + json.xVal + " \n" +  json.yVal);
     }
 };
-xhr.send(jsonSend);//json);
+xhr.send();//json);
 
 }
