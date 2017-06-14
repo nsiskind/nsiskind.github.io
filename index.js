@@ -32,7 +32,7 @@ document.onclick = function(e) {
 
   // Sending a receiving data in JSON format using GET method
 var xhr = new XMLHttpRequest();
-var url = "https://wm5zlp74ll.execute-api.us-east-1.amazonaws.com/plsWork/helloworlddemo?element=element";
+var url = "https://wm5zlp74ll.execute-api.us-east-1.amazonaws.com/plsWork/helloworlddemo?element=" + element + "&xVal=" + x_in_ele + "&yVal=" + y_in_ele;
 //+ encodeURIComponent(
 // var jsonSend =  {
 //  "element" : "{element}",
