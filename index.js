@@ -1,3 +1,8 @@
+
+//stores the clicks
+var clicks = [];
+
+
 //Makes calculations when the user clicks!
 document.onclick = function(e) {
   //Log event info
@@ -29,15 +34,41 @@ document.onclick = function(e) {
 
   console.log("Coordinates in element: " + x_in_ele + ", " + y_in_ele);
 
+var clickOBJ = {
+element : element,
+xVal : x_in_ele,
+yVal : y_in_ele
+};
+
+  clicks.push(clickOBJ);
+
+  console.log(clicks[0].element);
+
+  var delay = 5000;
+  setTimeout(sendEverything(), delay);
+
+}
+
+
+
+function sendEverything(){
+
+  var encodedURL = encodeURIComponent(JSON.stringify(clicks));
 
   // Sending a receiving data in JSON format using GET method
 var xhr = new XMLHttpRequest();
-var url = "https://oo2xkyltna.execute-api.us-east-1.amazonaws.com/Beta/clicktracker?element=" + element + "&xVal=" + x_in_ele + "&yVal=" + y_in_ele;
+var url = "https://oo2xkyltna.execute-api.us-east-1.amazonaws.com/Beta/clicktracker?testQ=" + encodedURL;
+
+
+
+//"?element=" + element + "&xVal=" + x_in_ele + "&yVal=" + y_in_ele;
 //+ encodeURIComponent(
 // var jsonSend =  {
 //  "element" : "{element}",
 //  "x_in_ele": "{x_in_ele}",
 //  "y_in_ele": "{y_in_ele}"};
+
+//USE JSON.Stringify to convert an array to a json object if you wanna send multiple clicks
 
 xhr.open("GET", url, true);
 
